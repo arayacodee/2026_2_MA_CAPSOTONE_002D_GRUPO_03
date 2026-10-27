@@ -16,7 +16,7 @@
             <tr><td><strong>{{ session.client?.name || session.client?.email || labels().person }}</strong>
               @if (session.client?.name) { <small>{{ session.client?.email }}</small> }</td>
               <td>{{ session.reservation?.service?.name || labels().service }}</td><td class="date">{{ formatDate(session) }}</td>
-              <td class="price">{{ formatPrice(session.reservation?.service?.price) }}</td>
+              <td class="price">{{ formatPrice(session.amount) }}</td>
               <td><span class="note-preview">{{ session.notes || 'Sin notas' }}</span></td><td>{{ session.evidences?.length || 0 }} imágenes</td>
               <td><button type="button" (click)="detail().openSession(session)" [attr.aria-label]="'Ver detalle de atención de ' + (session.client?.name || session.client?.email || labels().person)">Ver detalle ↗</button></td>
             </tr>
@@ -32,6 +32,6 @@
         <button type="button" (click)="next()" [disabled]="loading() || !nextCursor()">Siguiente →</button></div>
     </nav>
   </section>
-  <p class="footnote">Los valores corresponden al precio actual de cada servicio, tanto en el historial como en el resumen mensual.</p>
+  <p class="footnote">Cada atención conserva el precio guardado al registrarla, aunque después cambie la tarifa del servicio. El resumen mensual suma esos valores. Las atenciones antiguas sin monto guardado aparecen como «Sin registro» y no se incluyen en el total.</p>
 </main>
 <app-attention-dialog (changed)="updateSession($event)" />

@@ -71,13 +71,18 @@ describe('Registro de atención en ventana', () => {
     expect(component.error()).toBe('Sin conexión');
     expect(component.busy()).toBe(false);
   });
-  it('el detalle usa el precio del servicio aunque la atención tenga otro importe o no lo tenga', () => {
+  it('el detalle conserva el monto registrado y distingue montos desconocidos y cero', () => {
     const fixture = TestBed.createComponent(AttentionDialog); fixture.detectChanges();
-    for (const amount of [null, '5000']) {
+    for (const [amount, expected] of [[null, 'Sin valor registrado'], ['5000', '$5.000'], [0, '$0']] as const) {
       fixture.componentInstance.openSession({ ...session, amount }); fixture.detectChanges();
-      expect(fixture.nativeElement.querySelector('.summary').textContent).toContain('$15.000');
-      expect(fixture.nativeElement.querySelector('.summary').textContent).not.toContain('$5.000');
+      expect(fixture.nativeElement.querySelector('.summary').textContent).toContain(expected);
+      expect(fixture.nativeElement.querySelector('.summary').textContent).not.toContain('$15.000');
       fixture.componentInstance.close();
     }
+  });
+  it('antes de registrar una atención muestra la tarifa vigente del servicio', () => {
+    const fixture = TestBed.createComponent(AttentionDialog); fixture.detectChanges();
+    fixture.componentInstance.openReservation(reservation, 'America/Santiago'); fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.summary').textContent).toContain('$15.000');
   });
 });

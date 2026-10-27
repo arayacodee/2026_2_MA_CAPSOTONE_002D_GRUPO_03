@@ -6,16 +6,25 @@ import { AttentionMetrics } from './attention-metrics';
 describe('Métricas del panel', () => {
   it('muestra el mes de la API y actualiza al cambiar de mes en la zona del negocio', () => {
     vi.useFakeTimers(); vi.setSystemTime(new Date('2026-11-01T02:59:59Z'));
-    const metrics = { month: '2026-10', timezone: 'America/Santiago', todayCount: 2, monthCount: 12, uniqueClients: 8, revenue: 180000, daily: [{ date: '2026-10-31', count: 2 }] };
+    const metrics = { month: '2026-10', timezone: 'America/Santiago', todayCount: 2, monthCount: 12, uniqueClients: 8, revenue: 180000, missingAmountCount: 0, daily: [{ date: '2026-10-31', count: 2 }] };
     const getAttentionMetrics = vi.fn().mockReturnValue(of(metrics));
     TestBed.configureTestingModule({ imports: [AttentionMetrics], providers: [{ provide: ApiService, useValue: { getAttentionMetrics } }] });
     const fixture = TestBed.createComponent(AttentionMetrics); fixture.detectChanges();
     expect(fixture.nativeElement.textContent).toContain('octubre de 2026');
     expect(fixture.nativeElement.textContent).toContain('$180.000');
+    expect(fixture.nativeElement.textContent).not.toContain('Atenciones del mes sin monto registrado:');
     getAttentionMetrics.mockReturnValue(of({ ...metrics, month: '2026-11' }));
     vi.advanceTimersByTime(30_000);
     expect(getAttentionMetrics).toHaveBeenCalledTimes(2);
     expect(fixture.componentInstance.monthLabel()).toContain('noviembre');
     fixture.destroy(); vi.useRealTimers();
+  });
+  it('informa las atenciones sin monto que quedan fuera del total mensual', () => {
+    const metrics = { month: '2026-10', timezone: 'America/Santiago', todayCount: 1, monthCount: 3, uniqueClients: 2, revenue: 15000, missingAmountCount: 2, daily: [] };
+    TestBed.configureTestingModule({ imports: [AttentionMetrics], providers: [{ provide: ApiService, useValue: { getAttentionMetrics: () => of(metrics) } }] });
+    const fixture = TestBed.createComponent(AttentionMetrics); fixture.detectChanges();
+    expect(fixture.nativeElement.textContent).toContain('$15.000');
+    expect(fixture.nativeElement.textContent).toContain('Atenciones del mes sin monto registrado: 2.');
+    expect(fixture.nativeElement.textContent).toContain('No se incluyen en el total de valores.');
   });
 });

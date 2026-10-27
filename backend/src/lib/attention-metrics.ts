@@ -21,7 +21,7 @@ export function monthEnvelope(now: Date, timezone: string) {
 interface MetricSession {
   occurredAt: Date;
   clientId: string;
-  reservation: { service: { price: { toString(): string } } };
+  amount: { toString(): string } | null;
 }
 
 export function attentionMetrics(sessions: MetricSession[], now: Date, timezone: string) {
@@ -31,7 +31,7 @@ export function attentionMetrics(sessions: MetricSession[], now: Date, timezone:
     date: `${period.month}-${String(index + 1).padStart(2, '0')}`, count: 0,
   }));
   const clients = new Set<string>();
-  let monthCount = 0, todayCount = 0, revenueCents = 0;
+  let monthCount = 0, todayCount = 0, revenueCents = 0, missingAmountCount = 0;
   for (const session of sessions) {
     const day = localDay(session.occurredAt, timezone);
     if (!day.startsWith(`${period.month}-`) || session.occurredAt > now) continue;
@@ -39,8 +39,9 @@ export function attentionMetrics(sessions: MetricSession[], now: Date, timezone:
     if (day === period.today) todayCount++;
     daily[Number(day.slice(-2)) - 1].count++;
     clients.add(session.clientId);
-    revenueCents += Math.round(Number(session.reservation.service.price.toString()) * 100);
+    if (session.amount == null) missingAmountCount++;
+    else revenueCents += Math.round(Number(session.amount.toString()) * 100);
   }
   return { month: period.month, timezone, todayCount, monthCount,
-    uniqueClients: clients.size, revenue: revenueCents / 100, daily };
+    uniqueClients: clients.size, revenue: revenueCents / 100, missingAmountCount, daily };
 }

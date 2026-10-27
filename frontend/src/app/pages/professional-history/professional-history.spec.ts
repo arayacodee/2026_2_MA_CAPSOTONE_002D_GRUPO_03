@@ -5,13 +5,13 @@ import { ApiService } from '../../core/services/api.service';
 import { ProfessionalHistory } from './professional-history';
 
 describe('Historial profesional', () => {
-  const session = { id: 'session', notes: 'Nota inicial', amount: null, reservation: { service: { name: 'Low fade', price: '15000' } }, occurredAt: '2026-10-05T15:00:00Z', evidences: [] };
+  const session = { id: 'session', notes: 'Nota inicial', amount: '15000', reservation: { service: { name: 'Low fade', price: '20000' } }, occurredAt: '2026-10-05T15:00:00Z', evidences: [] };
   let api: { getMyBusiness: ReturnType<typeof vi.fn>; getSessions: ReturnType<typeof vi.fn>; getAttentionMetrics: ReturnType<typeof vi.fn> };
   beforeEach(() => {
     api = {
       getMyBusiness: vi.fn().mockReturnValue(of({ category: 'WELLNESS' })),
       getSessions: vi.fn().mockReturnValue(of({ items: [session], nextCursor: 'next' })),
-      getAttentionMetrics: vi.fn().mockReturnValue(of({ month: '2026-10', timezone: 'America/Santiago', todayCount: 0, monthCount: 1, uniqueClients: 1, revenue: 15000, daily: [] })),
+      getAttentionMetrics: vi.fn().mockReturnValue(of({ month: '2026-10', timezone: 'America/Santiago', todayCount: 0, monthCount: 1, uniqueClients: 1, revenue: 15000, missingAmountCount: 0, daily: [] })),
     };
     TestBed.configureTestingModule({ imports: [ProfessionalHistory], providers: [provideRouter([]), { provide: ApiService, useValue: api }] });
   });
@@ -21,10 +21,18 @@ describe('Historial profesional', () => {
     expect(fixture.nativeElement.querySelectorAll('tbody tr').length).toBe(1);
     expect(fixture.nativeElement.querySelector('tbody textarea')).toBeNull();
     expect(fixture.nativeElement.querySelector('tbody').textContent).toContain('$15.000');
+    expect(fixture.nativeElement.querySelector('tbody').textContent).not.toContain('$20.000');
     expect(fixture.nativeElement.textContent).toContain('Historial de sesiones');
     expect(fixture.nativeElement.querySelector('app-attention-metrics')).not.toBeNull();
     expect(fixture.nativeElement.textContent).toContain('Resumen de atenciones');
-    expect(fixture.nativeElement.textContent).not.toContain('Sin registro');
+    expect(fixture.nativeElement.querySelector('tbody').textContent).not.toContain('Sin registro');
+  });
+  it('distingue un monto cero de un registro antiguo sin monto, sin usar la tarifa actual', () => {
+    api.getSessions.mockReturnValue(of({ items: [{ ...session, amount: null }, { ...session, id: 'free', amount: 0 }], nextCursor: null }));
+    const fixture = TestBed.createComponent(ProfessionalHistory); fixture.detectChanges();
+    const prices = fixture.nativeElement.querySelectorAll('tbody .price');
+    expect(prices[0].textContent).toBe('Sin registro');
+    expect(prices[1].textContent).toContain('$0');
   });
   it('reemplaza la página, usa el cursor y permite regresar sin duplicados', () => {
     const fixture = TestBed.createComponent(ProfessionalHistory);
