@@ -4,6 +4,7 @@ import {
   inject,
   OnInit,
   computed,
+  viewChild,
   signal
 } from '@angular/core';
 
@@ -23,11 +24,12 @@ import { Business } from '../../models/business.model';
 import { businessLabels } from '../../models/business-category';
 import { Service } from '../../models/service.model';
 import { Availability } from '../../models/availability.model';
-import { Reservation } from '../../models/reservation.model';
+import { ClientSession, Reservation } from '../../models/reservation.model';
+import { AttentionDialog } from '../../components/attention-dialog/attention-dialog';
 
 @Component({
   selector: 'app-professional-dashboard',
-  imports: [RouterLink],
+  imports: [RouterLink, AttentionDialog],
   templateUrl: './professional-dashboard.html',
   styleUrl: './professional-dashboard.css'
 })
@@ -45,8 +47,7 @@ export class ProfessionalDashboard implements OnInit {
 
   loading = signal(true);
 
-  completingReservationId =
-    signal<string | null>(null);
+  readonly attentionDialog = viewChild.required(AttentionDialog);
 
   errorMessage = signal('');
   successMessage = signal('');
@@ -170,70 +171,15 @@ export class ProfessionalDashboard implements OnInit {
     });
   }
 
-  completeReservation(
-    reservationId: string
-  ): void {
-    if (this.completingReservationId()) return;
-    const notes = window.prompt(
-      'Puedes agregar una nota de atención (opcional):'
-    );
-
-    if (notes === null) {
-      return;
-    }
-
-    this.completingReservationId.set(
-      reservationId
-    );
-
-    this.errorMessage.set('');
+  completeReservation(reservationId: string): void {
     this.successMessage.set('');
+    this.errorMessage.set('');
+    const reservation = this.reservations().find(item => item.id === reservationId);
+    if (reservation) this.attentionDialog().openReservation(reservation, this.business()?.timezone ?? 'America/Santiago');
+  }
 
-    this.api
-      .completeReservation(
-        reservationId,
-        notes
-      )
-      .subscribe({
-        next: () => {
-          this.successMessage.set(
-            'Atención registrada correctamente.'
-          );
-
-          // Reflejamos COMPLETED localmente para retirar
-          // la reserva de las listas pendientes.
-          this.reservations.update(
-            (reservations) =>
-              reservations.map(
-                (reservation) =>
-                  reservation.id ===
-                    reservationId
-                    ? {
-                        ...reservation,
-                        status: 'COMPLETED'
-                      }
-                    : reservation
-              )
-          );
-
-          this.completingReservationId.set(
-            null
-          );
-        },
-
-        error: (error) => {
-          console.error(error);
-
-          this.errorMessage.set(
-            error?.error?.error ??
-              'No fue posible registrar la atención.'
-          );
-
-          this.completingReservationId.set(
-            null
-          );
-        }
-      });
+  attentionChanged(session: ClientSession): void {
+    this.reservations.update(items => items.map(item => item.id === session.reservationId ? { ...item, status: 'COMPLETED' } : item));
   }
 
   activeServicesCount(): number {

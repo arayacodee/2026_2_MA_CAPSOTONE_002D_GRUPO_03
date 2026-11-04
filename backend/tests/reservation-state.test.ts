@@ -4,7 +4,7 @@ import { cancelSafely, completeSafely, ReservationConflict } from '../src/lib/re
 import type { Prisma } from '../src/generated/prisma/client.js';
 
 function transaction(status = 'CONFIRMED', future = false) {
-  const reservation = { id: 'reservation', status, businessId: 'business', clientId: 'client', startsAt: new Date(Date.now() + (future ? 60_000 : -60_000)) };
+  const reservation = { id: 'reservation', status, businessId: 'business', clientId: 'client', startsAt: new Date(Date.now() + (future ? 60_000 : -60_000)), service: { price: '15000' } };
   let session: any = status === 'COMPLETED' ? { id: 'existing' } : null;
   let creations = 0;
   const tx = {
@@ -15,7 +15,7 @@ function transaction(status = 'CONFIRMED', future = false) {
         reservation.status = data.status;
         return { count: 1 };
       },
-      findUniqueOrThrow: async () => ({ ...reservation })
+      findUniqueOrThrow: async () => reservation
     },
     clientSession: {
       findUnique: async () => session,
@@ -35,13 +35,16 @@ test('cancelar dos veces es idempotente', async () => {
   await cancelSafely(state.tx, 'reservation');
   assert.equal((await cancelSafely(state.tx, 'reservation')).status, 'CANCELLED');
 });
-test('completar dos veces conserva una única atención', async () => {
+test('completar dos veces conserva una única atención y el precio original aunque cambie la tarifa', async () => {
   const state = transaction();
   const first = await completeSafely(state.tx, 'reservation', 'Nota');
+  state.reservation.service.price = '20000';
   const second = await completeSafely(state.tx, 'reservation', 'Otra nota');
   assert.equal(first.session.id, second.session.id);
   assert.equal(state.creations(), 1);
   assert.equal(first.session.occurredAt, state.reservation.startsAt);
+  assert.equal(first.session.amount, '15000');
+  assert.equal(second.session.amount, '15000');
 });
 test('una cancelación previa impide completar', async () => {
   const state = transaction();
