@@ -12,4 +12,4 @@ El diario 2.1 disponible fue subido por Martin Ibarra en `ef5c2cc`, pero está r
 
 La autoevaluación 2.2 y la formativa 2.3 se conservan como complementarios. No reemplazan las planillas de evaluación en Excel exigidas en la imagen.
 
-La revisión de las ramas no encontró el informe 2.6, las dos planillas XLSX ni una presentación. Las guías en inglés son optativas. Las fichas disponibles son la 02 y la 04; faltan la 01 y la 03 de la serie solicitada.
+La revisión de las ramas no encontró el informe 2.6, las dos planillas XLSX ni una presentación. Las guías en inglés son optativas. Las fichas disponibles son la 02, 04, 05 y 06; faltan la 01 y la 03 para reunir las seis solicitadas. El Excel de flujo de caja está en Evidencias Proyecto/Documentacion/Evaluacion economica y respalda la ficha 06; no sustituye otras planillas de evaluación.

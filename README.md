@@ -12,7 +12,7 @@ Las evidencias se organizan por fase. Fase 2 separa evidencias individuales, gru
 | --- | --- |
 | [Fase 1](Fase%201/README.md) | Estructura de la entrega, guía de definición del proyecto y pendientes por integrante |
 | [Fase 2](Fase%202/README.md) | Individuales, avance, informe final y evidencias del proyecto |
-| [Fichas de iteración](Fase%202/Evidencias%20Proyecto/Fichas_Iteracion/README.md) | Fichas 02 y 04 disponibles; 01 y 03 pendientes |
+| [Fichas de iteración](Fase%202/Evidencias%20Proyecto/Fichas_Iteracion/README.md) | Fichas 02, 04, 05 y 06 disponibles; 01 y 03 pendientes |
 
 Los documentos individuales pendientes se indican en los índices; esos avisos no cuentan como evidencias entregadas.
 
