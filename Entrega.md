@@ -1,25 +1,13 @@
 # Estado de entrega
 
-Proyecto CRONOS de Manuel Araya y Martín Ibarra. Sección 002D, grupo 03.
-Organización revisada el 5 de noviembre de 2026 según la indicación final de GitHub.
+CRONOS · Sección 002D · Grupo 03
 
-| Requisito | Estado | Ubicación |
+| Carpeta | Disponible | Pendiente |
 | --- | --- | --- |
-| Fase 1, individuales 1.1 y 1.2 de Manuel | Disponibles | [Carpeta de Manuel](Fase%201/Evidencias%20Individuales/Araya_Manuel/README.md) |
-| Fase 1, individual 1.3 de Manuel | No entregado | Carpeta de Manuel |
-| Fase 1, individuales 1.1, 1.2 y 1.3 de Martín | No entregados | [Carpeta de Martín](Fase%201/Evidencias%20Individuales/Ibarra_Martin/README.md) |
-| Fase 1, presentación y formativa 1.4 | No entregadas | [Fase 1](Fase%201/README.md) |
-| Fase 1, definición 1.5 en español | Disponible | [Evidencias grupales](Fase%201/Evidencias%20Grupales) |
-| Fase 2, diario 2.1 de Manuel | Disponible | [Carpeta de Manuel](Fase%202/Evidencias%20Individuales/Araya_Manuel/README.md) |
-| Fase 2, diario 2.1 de Martín | No entregado | [Carpeta de Martín](Fase%202/Evidencias%20Individuales/Ibarra_Martin/README.md) |
-| Fase 2, desarrollo 2.4 en español | Disponible | [Avance](Fase%202/Evidencias%20Grupales/Avance/README.md) |
-| Fase 2, informe 2.6 en español | No entregado | [Informe final](Fase%202/Evidencias%20Grupales/Informe%20Final/README.md) |
-| Fase 2, presentación del proyecto | No entregada | [Presentación](Fase%202/Evidencias%20Proyecto/Presentacion%20Proyecto/README.md) |
-| Seis fichas de iteración | Disponibles, del 01 al 06 | [Fichas de Iteración](Fase%202/Evidencias%20Proyecto/Fichas%20de%20Iteraci%C3%B3n/README.md) |
-| Evidencias de documentación | Disponibles | [Documentación](Fase%202/Evidencias%20Proyecto/Documentacion/README.md) |
-| Evidencias de sistema y base de datos | Código, esquema y migraciones disponibles | [Aplicación](Fase%202/Evidencias%20Proyecto/Sistema/Aplicacion/README.md) y [base de datos](Fase%202/Evidencias%20Proyecto/Sistema/Base%20de%20datos/README.md) |
+| [Fase 1 · Evidencias Individuales](Fase%201/Evidencias%20Individuales/README.md) | Manuel: 1.1 y 1.2 | Manuel: 1.3. Martín: 1.1, 1.2 y 1.3 |
+| [Fase 1 · Evidencias Grupales](Fase%201/Evidencias%20Grupales/README.md) | Definición 1.5 en español | Presentación y formativa 1.4 |
+| [Fase 2 · Evidencias Individuales](Fase%202/Evidencias%20Individuales/README.md) | Manuel: diario 2.1 y autoevaluación 2.2 complementaria | Martín: diario 2.1 |
+| [Fase 2 · Evidencias Grupales](Fase%202/Evidencias%20Grupales/README.md) | Desarrollo 2.4 en español | Informe final 2.6 en español |
+| [Fase 2 · Evidencias Proyecto](Fase%202/Evidencias%20Proyecto/README.md) | Documentación, sistema y fichas 01 a 06 | Presentación del proyecto |
 
-Las versiones completas en inglés indicadas como optativas en el PDF no se cuentan
-como documentos obligatorios ausentes. Los documentos complementarios no sustituyen
-los individuales ni los informes requeridos. La disponibilidad de código y fichas
-no equivale a aprobación docente o aceptación integrada de todas las funciones.
+Las versiones completas en inglés indicadas en la guía son optativas.

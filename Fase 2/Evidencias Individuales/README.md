@@ -1,9 +1,4 @@
-# Evidencias individuales
+# Evidencias Individuales
 
-| Integrante | Diario 2.1 |
-| --- | --- |
-| [Manuel Araya](Araya_Manuel/README.md) | [Disponible](Araya_Manuel/Araya_Manuel_2.1_APT122_DiarioReflexionFase2.docx) |
-| [Martín Ibarra](Ibarra_Martin/README.md) | No entregado |
-
-Los archivos anteriores sin identificación individual se conservan como
-[versiones anteriores complementarias](../Evidencias%20Grupales/Avance/Complementarios/Versiones%20anteriores/README.md).
+- [Manuel Araya · 2.1 Diario de reflexión](Araya_Manuel_2.1_APT122_DiarioReflexionFase2.docx)
+- [Manuel Araya · 2.2 Autoevaluación de avance](Araya_Manuel_2.2_APT122_AutoevaluacionAvance_Fase2_CRONOS.docx)
