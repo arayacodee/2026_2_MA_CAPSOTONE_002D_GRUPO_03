@@ -29,5 +29,5 @@ no se escriben datos en Neon ni se acredita concurrencia real en PostgreSQL.
 ℹ duration_ms 382.3191
 ```
 
-La ficha 03 utiliza este resultado como verificación parcial de reglas de estado.
+Este resultado verifica de manera parcial las reglas de estado de las reservas.
 La reserva exitosa desde interfaz y la concurrencia real requieren sus propias evidencias.

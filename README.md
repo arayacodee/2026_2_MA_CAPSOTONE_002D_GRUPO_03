@@ -1,6 +1,6 @@
-# APT_Capstone_002D_ARAYA_IBARRA
+# 2026_2_MA_CAPSOTONE_002D_GRUPO_03
 
-Proyecto CRONOS de Manuel Araya y Martin Ibarra, sección 002D.
+Proyecto CRONOS de Manuel Araya y Martín Ibarra, sección 002D, grupo 03.
 
 Plataforma de reservas para clientes y profesionales. Frontend Angular; API Express y TypeScript; PostgreSQL en Neon mediante Prisma; autenticación Google y sesión JWT en cookie HttpOnly; imágenes en Cloudinary.
 
@@ -12,9 +12,9 @@ Las evidencias se organizan por fase. Fase 2 separa evidencias individuales, gru
 | --- | --- |
 | [Fase 1](Fase%201/README.md) | Estructura de la entrega, guía de definición del proyecto y pendientes por integrante |
 | [Fase 2](Fase%202/README.md) | Individuales, avance, informe final y evidencias del proyecto |
-| [Fichas de iteración](Fase%202/Evidencias%20Proyecto/Fichas%20de%20Iteraci%C3%B3n/README.md) | Seis fichas disponibles, ordenadas de 01 a 06; 03 reconstruida documentalmente |
+| [Fichas de iteración](Fase%202/Evidencias%20Proyecto/Fichas%20de%20Iteraci%C3%B3n/README.md) | Seis fichas ordenadas de 01 a 06; ficha 03 de horarios disponibles |
 
-Los documentos individuales pendientes se indican en los índices; esos avisos no cuentan como evidencias entregadas.
+[Estado de entrega y documentos disponibles](Entrega.md). Los archivos que aún no se han entregado se indican de forma expresa.
 
 ## Desarrollo local
 

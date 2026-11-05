@@ -1,9 +1,10 @@
 # Avance del proyecto
 
-| Documento | Estado |
-| --- | --- |
-| [2.4 Guía de desarrollo del proyecto en español](2.4_GuiaEstudiante_Fase%202_DesarrolloProyecto%20APT%20%28Espa%C3%B1ol%29.docx) | Disponible; archivo original de la rama de fichas, renombrado para seguir la referencia |
-| `2.4_GuiaEstudiante_Fase 2_DesarrolloProyecto APT (Inglés).docx` | Optativo; pendiente |
-| `PLANILLA DE EVALUACIÓN AVANCE FASE 2.xlsx` | Pendiente |
+[2.4 Desarrollo del proyecto en español](2.4_GuiaEstudiante_Fase%202_DesarrolloProyecto%20APT%20%28Espa%C3%B1ol%29.docx).
 
-[Formativa 2.3 complementaria](Complementarios/2.3_APT122_FormativaAvance_Fase2_CRONOS_100.docx). Su contenido se conserva; no sustituye la planilla XLSX.
+La versión completa en inglés es optativa según el PDF de organización.
+
+Documentos complementarios:
+
+- [Formativa 2.3](Complementarios/2.3_APT122_FormativaAvance_Fase2_CRONOS_100.docx).
+- [Versiones anteriores de diario y autoevaluación](Complementarios/Versiones%20anteriores/README.md).
