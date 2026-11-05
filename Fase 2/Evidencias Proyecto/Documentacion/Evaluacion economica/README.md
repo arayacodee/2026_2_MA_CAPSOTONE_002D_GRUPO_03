@@ -2,7 +2,7 @@
 
 [Descargar flujo de caja con VAN, TIR y sensibilidad](Cronos_Flujo_Caja_VAN_TIR.xlsx).
 
-Respalda la [ficha de avance 06](../../Fichas_Iteracion/Ficha_Avance_06_CRONOS.docx).
+Respalda la [ficha de avance 06](../../Fichas%20de%20Iteraci%C3%B3n/Ficha_Avance_06_CRONOS.docx).
 
 | Supuesto o resultado | Valor |
 | --- | --- |

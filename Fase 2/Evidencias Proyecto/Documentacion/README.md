@@ -2,6 +2,8 @@
 
 Documentación disponible en el repositorio:
 
+- [Diseño inicial y trazabilidad de CRONOS](Diseno%20inicial/README.md), respaldo de las fichas 01 y 03.
+
 - [Evaluación económica y flujo de caja con VAN y TIR](Evaluacion%20economica/README.md).
 
 - [Diagrama de actividades: reserva de un servicio profesional, versión 2](Diagramas%20de%20actividades/Cronos_Diagrama_Actividadesv2.drawio.png).
