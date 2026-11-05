@@ -28,3 +28,7 @@ Thumbs.db
 .codex/
 .gemini/
 AGENTS.md
+
+# Archivos de trabajo locales
+entregables/
+completar_*.py

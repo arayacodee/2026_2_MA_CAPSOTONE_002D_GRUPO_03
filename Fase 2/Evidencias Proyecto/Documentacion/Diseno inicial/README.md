@@ -1,7 +1,7 @@
 # Diseño inicial y trazabilidad de CRONOS
 
 Actualización documental del 5 de noviembre de 2026. Base de contraste: `3c68c0d`.
-Respalda el diseño de la ficha 01 y la reconstrucción de la ficha 03. Describe el
+Respalda el diseño de la ficha 01 y las reglas de reservas del sistema. Describe el
 alcance inicial y lo contrasta con la implementación disponible; no atribuye todos
 los módulos actuales a septiembre ni acredita aprobación docente.
 
@@ -90,11 +90,11 @@ Este backlog organiza el diseño; sus criterios no equivalen a aceptación ya ej
 | Alta | Como cliente, quiero reservar un intervalo. | Servicio activo, fecha futura y ausencia de solapamiento; confirmación persistida. | reservation.controller.ts. |
 | Media | Como usuario, quiero consultar y cancelar mis reservas. | Solo registros propios y transiciones permitidas, sin cancelar atenciones completadas. | reservation.routes.ts; reservation-state.ts. |
 
-## 6 Reconstrucción de la iteración 03
+## 6 Reglas y verificación de reservas
 
-La ficha 02 aborda el primer proceso conectado de servicios. Esta reconstrucción
+La ficha 02 aborda el primer proceso conectado de servicios. La documentación
 relaciona ese antecedente con reservas, permisos y estados. La ficha 04 conserva
-el inventario y sus pesos; esta reconstrucción no modifica su 50 % de avance reconocido.
+el inventario y sus pesos; esta documentación no modifica su 50 % de avance reconocido.
 
 | Componente | Evidencia de implementación | Alcance de la comprobación |
 | --- | --- | --- |
@@ -114,4 +114,4 @@ el inventario y sus pesos; esta reconstrucción no modifica su 50 % de avance re
 
 La validación real debe registrar versión, fecha, datos de prueba sin información
 privada, resultado esperado, resultado observado y evidencia. No se adjuntan firmas
-ni aprobación docente a esta reconstrucción.
+ni aprobación docente a esta documentación.

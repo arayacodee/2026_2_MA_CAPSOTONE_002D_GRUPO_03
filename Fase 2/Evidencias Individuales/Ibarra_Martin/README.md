@@ -1,5 +1,3 @@
-# Diario de reflexión de Martin Ibarra
+# Evidencias individuales de Martín Ibarra
 
-Pendiente de subir: `Ibarra_Martin_2.1_APT122_DiarioReflexionFase2.docx`.
-
-El diario subido en su rama está redactado en grupo y no permite atribuirle una reflexión individual. Se conserva en [Por identificar](../Por%20identificar/README.md) hasta confirmar y personalizar la entrega.
+El diario individual 2.1 de Fase 2 todavía no está incorporado al repositorio.
